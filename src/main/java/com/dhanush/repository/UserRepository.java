@@ -8,6 +8,6 @@ import com.dhanush.entity.User;
 @Repository
 public interface UserRepository extends JpaRepository<User,Long> {
 
-	Object findByUsername(String username);
+	User findByUsername(String username);
 
 }

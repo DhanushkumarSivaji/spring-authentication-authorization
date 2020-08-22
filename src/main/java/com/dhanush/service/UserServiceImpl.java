@@ -16,13 +16,13 @@ public class UserServiceImpl implements UserService {
 	    private UserRepository userRepository;
 
 		//It will be provided on WebSecurityConfig as @Bean
-//	    @Autowired
-//	    private PasswordEncoder passwordEncoder;
+	    @Autowired
+	    private PasswordEncoder passwordEncoder;
 
 
 	    @Override
 	    public User saveUser(final User user){
-//	        user.setPassword(passwordEncoder.encode(user.getPassword()));
+	        user.setPassword(passwordEncoder.encode(user.getPassword()));
 	        return userRepository.save(user);
 	    }
 
@@ -48,9 +48,8 @@ public class UserServiceImpl implements UserService {
 	        return userRepository.count();
 	    }
 
-		@Override
-		public User findByUsername(String username) {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	    @Override
+	    public User findByUsername(final String username){
+	        return userRepository.findByUsername(username);
+	    }
 }
